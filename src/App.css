@@ -1,38 +1,160 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: "Anton";
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
+  background: url('./assets/backgroung.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.header {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.logo {
+  width: 280px;
+  height: calc(100vh - 50px);
+  margin-left: 10px;
+}
+.logo img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.hamburger {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  width: 60px;
+}
+.hamburger img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 767px) {
+  .navigation {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+  .navigation ul li {
+    position: relative;
+    transition: 0.3s all ease;
+  }
+  .navigation ul li button {
+    color: rgba(255,255,255,0.7);
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    display: block;
+    font-size: 110px;
+    line-height: 1.15;
+    letter-spacing: 5px;
+    -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+    -moz-transform: matrix(1, 0, 0, -1, 0, 0);
+    -o-transform: matrix(1, 0, 0, -1, 0, 0);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+  }
+  .navigation ul:hover li {
+    opacity: 0.4;
+  }
+  .navigation ul li:hover {
+    transform: translateY(-15px);
+    opacity: 1;
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1280px){
+  .navigation ul li button {
+    font-size: 90px;
+    line-height: 1.1;
+  }
+  .logo {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 992px){
+  .logo {
+    width: 150px;
+  }
+  .navigation ul li button {
+    font-size: 70px;
+    line-height: 1.1;
+  }
+}
+@media screen and (max-width: 767px){
+  .logo {
+    position: absolute;
+    top: -35px;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+  }
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(90deg);
+  }
+  .navigation {
+    opacity: 0;
+    visibility: hidden;
+    top: 100px;
+    width: 100%;
+    padding: 25px;
+  }
+  .navigation.show {
+    background: rgba(0,0,0,0.9);
+    width: 100%;
+    position: absolute;
+    top: 90px;
+    opacity: 1;
+    visibility: visible;
+  }
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .navigation ul li button {
+    font-size: 50px;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.7);
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+@media screen and (max-width: 480px){
+  .navigation ul li button {
+    font-size: 40px;
   }
 }
